@@ -1,0 +1,103 @@
+abstract class LinkedList<T>
+
+// скрытые поля
+private bool is_head;
+private bool is_tail;
+private bool is_value;
+
+// интерфейс класса, реализующий АТД LinkedList
+
+public const int PUT_RIGHT_NIL = 0; //  put_right() ещё не вызывалась
+public const int PUT_RIGHT_OK = 1; // узел добавлен
+public const int PUT_RIGHT_ERR = 2; // узел не добавлен
+
+public const int PUT_LEFT_NIL = 0; //  put_left() ещё не вызывалась
+public const int PUT_LEFT_OK = 1; // узел добавлен
+public const int PUT_LEFT_ERR = 2; // узел не добавлен
+
+public const int ADD_TAIL_NIL = 0; //  add_tail() ещё не вызывалась
+public const int ADD_TAIL_OK = 1; // узел добавлен
+public const int ADD_TAIL_ERR = 2; // узел не добавлен
+
+public const int REMOVE_NIL = 0; //  remove() ещё не вызывалась
+public const int REMOVE_OK = 1; // узел удален
+public const int REMOVE_ERR = 2; // узел не удален
+
+public const int REMOVE_ALL_NIL = 0; //  remove_all() ещё не вызывалась
+public const int REMOVE_ALL_OK = 1; // узлы удалены
+public const int REMOVE_ALL_ERR = 2; // узлы не удалены
+
+
+// конструктор
+// постусловие: очистить список
+public LinkedList<T> LinkedList<T>;
+
+
+
+// команды
+
+// предусловие: список не пуст
+// постусловие: установит курсор на первый узел в списке
+public void head();
+
+// предусловие: список не пуст
+// постусловие: установит курсор на последний узел в списке
+public void tail();
+
+// предусловие: список не пуст
+// постусловие: передвинет курсор на один узел вправо
+public void right();
+
+// постусловие: вставит после текущего узла новый узел с указанным значением
+public void put_right(T value);
+
+// постусловие: вставит перед текущим узлом новый узел с указанным значением
+public void put_left(T value);
+
+// предусловие: список не пуст
+// постусловие: удалит текущий узел
+public void remove();
+
+// постусловие: очистит список
+public void clear();
+
+// постусловие: добавил элемент в хвост
+public void add_tail(T value);
+
+// предусловие: список не пуст
+// постусловие: заменит текущий узел новым элементом
+public void replace(T value);
+
+// предусловие: список не пуст
+// постусловие: установит курсор на следующий узел, после узла с переданным значением 
+public void find(T value);
+
+// предусловие: список не пуст
+// постусловие: удалит в списке все узлы с переданным значением
+public void remove_all(T value);
+
+
+// запросы
+
+// постусловие: вернет число узлов в списке
+public int size();
+
+// постусловие:получит значение текущего узла
+public T get();
+
+// проверяет находится ли курсор в начале списке
+public bool is_head();
+
+// проверяет находится ли курсор в конце списке
+public bool is_tail();
+
+// проверяет не пуст ли список
+public bool is_value();
+
+
+// дополнительные запросы
+public int get_put_right_status(); // возвращает значение PUT_RIGHЕ_*
+public int get_put_left_status(); // возвращает значение  PUT_LEFT_*
+public int get_add_tail_status(); // возвращает значение  ADD_TAIL_*
+public int get_remove_status(); // возвращает значение  REMOVE_*
+public int get_remove_all_status(); // возвращает значение   REMOVE_ALL_*
