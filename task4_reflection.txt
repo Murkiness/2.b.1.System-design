@@ -1,0 +1,2 @@
+1) вместо put - insert, вместо remove - delete
+2) не добавил put_right и put_left, но в оригинале их и не было
